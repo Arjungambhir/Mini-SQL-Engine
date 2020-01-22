@@ -44,5 +44,13 @@ Input Format:
  
 Output format:
  <Table1.column1, Table1.column2....TableN.columnM> Row1 Row2 ....... RowN 
+ 
+
+Steps to run 
+
+1.run as ---->>  python 2019900004.py "<sql query here >"
+
+ 
+
 
 
