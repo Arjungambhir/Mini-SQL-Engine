@@ -48,7 +48,7 @@ Output format:
 
 Steps to run 
 
-1.run as ---->>  python 2019900004.py "<sql query here>"
+1.run as ---->>  python 2019900004.py "sql_query_here"
 
  
 
