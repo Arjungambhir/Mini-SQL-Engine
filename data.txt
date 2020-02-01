@@ -1,0 +1,17 @@
+
+
+
+select * from table2
+select a from table1
+select a from table1 where a>100
+select count(a) from table1 where a>100
+select Max(a) from table1 
+Select distinct(a) from table1
+
+
+Not working part 
+
+joints is not working 
+multiple table retrival is not working 
+
+

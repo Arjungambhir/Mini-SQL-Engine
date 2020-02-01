@@ -1,0 +1,31 @@
+
+Test Cases: 20*4 = 80 Marks
+
+
+
+need to add distinct for this 
+
+12. select table1.C from table1,table2 where table1.A<table2.B;
+17. select table1.C from table1,table2 where table1.A<table2.D OR table1.A>table2.B;
+19. select table1.A from table1,table2 where table1.A<table2.B AND table1.A>table2.D;
+
+
+modf to 
+12. select distinct(table1.C) from table1,table2 where table1.A<table2.B;
+17. select distinct(table1.C) from table1,table2 where table1.A<table2.D OR table1.A>table2.B;
+19. select distinct(table1.A) from table1,table2 where table1.A<table2.B AND table1.A>table2.D;
+
+
+
+
+
+not worked 
+15. select B from table1,table2;	
+20. select sum(table1.A) from table1,table2;
+
+
+CODE and VIVA - 20 Marks
+
+
+distinct(table1.A)
+

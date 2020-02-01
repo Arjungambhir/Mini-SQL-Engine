@@ -38,6 +38,7 @@ def retrieveQueryElements(queryTokens):
 
 def getColumnConfig(columns, tables,aliasTableMapping):
     columnConfiguration = []
+    columns = "".join(columns).split(",")
     for column in columns:
         regmatch = regex.match("(.+)\((.+)\)", column)
         if regmatch:
@@ -59,10 +60,10 @@ def getColumnConfig(columns, tables,aliasTableMapping):
             if columnName != "*":
                 tableName = [t for t in tables if columnName in dataBaseSchema[aliasTableMapping[t]]]
                 if(len(tableName)>1):
-                    print("Error : table name is not unique ")
+                    print("Error : field name is not unique '{}'".format(column))
                     exit(-1)
                 if (len(tableName) == 0):
-                    print("Error : Unknown table name ")
+                    print("Error : Unknown column  name '{}'".format(column))
                     exit(-1)
                 tableName = tableName[0]
 
@@ -91,6 +92,7 @@ def getColumnConfig(columns, tables,aliasTableMapping):
 def getAliasTableMapping(tablesArr):
     tables = []
     aliasTableMapping = {}
+    tablesArr = " ".join(tablesArr).split(",")
     for table in tablesArr:
         t = table.split()
         if len(t) == 1:
@@ -258,7 +260,7 @@ def getTable(finalQueryDir):
                 out_table.append(max(col))
             elif aggr == "sum":
                 out_table.append(sum(col))
-            elif aggr == "avg":
+            elif aggr == "average":
                 out_table.append(sum(col) / col.shape[0])
             elif aggr == "count":
                 out_table.append(col.shape[0])
@@ -309,7 +311,7 @@ def MiniSqlEngine(query):
 
     # extract and separate elements in query
     basicTables, columns, baseConditions = retrieveQueryElements(queryTokens)
-    tables = " ".join(basicTables).split(",")
+  #  tables = " ".join(basicTables).split(",")
     tables, aliasTableMapping = getAliasTableMapping(basicTables)
     columnConfiguration = getColumnConfig(columns,tables,aliasTableMapping)
     conditions, conditionalMappings = getConditionalMapping(baseConditions, tables, aliasTableMapping)
